@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { MoviesListComponent } from './movies-list.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MovieBtnComponent } from '../btns/movie-btn/movie-btn.component';
 
 
 
 @NgModule({
   declarations: [
-    MoviesListComponent
+    MoviesListComponent ,
+     MovieBtnComponent
   ],
   imports: [
     CommonModule,
@@ -16,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forChild([
       { path: 'movies', component: MoviesListComponent }
       ]),
+     
   ]
 })
 export class MoviesModule {}

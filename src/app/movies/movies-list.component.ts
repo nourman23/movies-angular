@@ -64,5 +64,11 @@ export class MoviesListComponent implements OnInit , OnDestroy{
         };
         return filteredMovies;
       }
+
+      
+      onBtnClicked(message : string):void{
+      this.pageTitle='Movies List: ' + message;
+      // alert(this.pageTitle);
+  }
       
 }

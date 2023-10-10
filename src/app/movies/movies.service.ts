@@ -8,7 +8,7 @@ import { IMovie } from './movies';
 })
 export class MoviesService {
 
-  private productUrl = 'https://api.themoviedb.org/4/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1';
+  private productUrl = 'https://api.themoviedb.org/4/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=2';
 
   constructor(private http : HttpClient) { }
   getMovies(): Observable<IMovie>{

@@ -16,7 +16,12 @@
             <div class="card m-3 p-0 shadow" style="width: 18rem;" 
             *ngFor="let movie of filteredMovies.results">
                 <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w1280' + movie.poster_path" alt="Card image cap">
+              
                 <div class="card-body">
+                    <movie-btn
+                [title]='movie.title'
+                (movieBtnClicked)='onBtnClicked($event)'
+                ></movie-btn>
                   <h5 class="card-title">{{movie.title}}</h5>
                   <p class="card-text">{{movie.overview}}</p>
                   <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
