@@ -14,6 +14,6 @@ export class MovieBtnComponent {
   onClick():void{
     console.log(this.title);
     
-    this.movieBtnClicked.emit(`the movie ${this.title}  was selected !`);
+    this.movieBtnClicked.emit(`the movie :  ${this.title}  !`);
 }
 }
