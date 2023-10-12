@@ -15,6 +15,7 @@ export class MoviesListComponent implements OnInit, OnDestroy {
   errorMessage: string = '';
   movies: IMovie = { results: [] };
   filteredMovies: IMovie = { results: [] };
+  currentPage = 1; // Default page
 
 
   private _listFilter: string = '';
@@ -31,7 +32,15 @@ export class MoviesListComponent implements OnInit, OnDestroy {
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
-    this.sub = this.moviesService.getMovies().subscribe({
+    this.loadMovies();
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+  
+  loadMovies() {
+    this.sub = this.moviesService.getMovies(this.currentPage).subscribe({
       next: (movies) => {
         this.movies = movies;
         this.filteredMovies = this.movies;
@@ -41,13 +50,20 @@ export class MoviesListComponent implements OnInit, OnDestroy {
       error: (err) => this.errorMessage = err,
       complete: () => console.log('complete')
     })
-
+  }
+  nextPage() {
+    // Handle user clicking "Next" button
+    this.currentPage++;
+    this.loadMovies();
   }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
+  previousPage() {
+    // Handle user clicking "Previous" button
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.loadMovies();
+    }
   }
-
   //   performFilter(filterBy: string): IMovie {
 
   //     filterBy = filterBy.toLocaleLowerCase();

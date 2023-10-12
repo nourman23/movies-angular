@@ -3,6 +3,7 @@
 @import "~font-awesome/css/font-awesome.min.css";
 
 
+
 body{
     font-family: 'Caveat', cursive;
 }
@@ -18,3 +19,62 @@ body{
   .card-text::-webkit-scrollbar {
     display: none;
   }
+
+  .active>a {
+    color:#dc3545 !important
+  }
+
+
+  .movie-card {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    /* margin: 20px; */
+    /* width: 800px; */
+  }
+  
+  .poster {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .poster img {
+    max-width: 100%;
+    max-height: 400px;
+  }
+  
+  .info {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+  }
+  
+  .rating {
+    margin-top: 20px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .value {
+    color: #f39c12; /* Customize the color as needed */
+    font-weight: bold;
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

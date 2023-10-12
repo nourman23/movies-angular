@@ -48,7 +48,11 @@
         class="card m-3 p-0 shadow"
         style="width: 18rem"
         *ngFor="let movie of filteredMovies.results"
-      >
+      >  <movie-btn
+            [title]="movie.title"
+            (movieBtnClicked)="onBtnClicked($event)"
+          ></movie-btn>
+      <a class="text-decoration-none text-black-50" [routerLink]="['/movie' , movie.id]">      
         <img
           class="card-img-top"
           [src]="'https://image.tmdb.org/t/p/w1280' + movie.poster_path"
@@ -56,15 +60,28 @@
         />
 
         <div class="card-body">
-          <movie-btn
-            [title]="movie.title"
-            (movieBtnClicked)="onBtnClicked($event)"
-          ></movie-btn>
+        
           <h5 class="card-title fw-bold text-center text-danger">{{ movie.title }}</h5>
           <p class="card-text">{{ movie.overview }}</p>
           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        </div>
+        </div></a>
       </div>
     </div>
+
+    <div class="d-flex justify-content-center">
+      <button class="p-2 m-3" (click)="previousPage()" [disabled]="currentPage === 1">
+        previous
+      </button>
+      <button class="p-2 m-3" (click)="nextPage()">
+       next
+      </button>
+    </div>
+    <!-- Pagination Controls -->
+<!-- <mat-paginator
+[pageSize]="10"       
+[pageSizeOptions]="[5, 10, 20, 50]" 
+[length]="filteredMovies.results.length"
+(page)="paginateData($event)"
+></mat-paginator> -->
   </div>
 </div>

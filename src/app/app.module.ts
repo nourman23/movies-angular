@@ -4,9 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesModule } from './movies/movies.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from 'src/home/welcome.component';
 
+
+const appRoutes : Routes = [
+  { path: 'welcome', component: WelcomeComponent },
+    { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+    { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+  ]
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,11 +21,7 @@ import { WelcomeComponent } from 'src/home/welcome.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'welcome', component: WelcomeComponent },
-        { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-        { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-      ]),
+    RouterModule.forRoot(appRoutes),
     MoviesModule,
   ],
   providers: [],

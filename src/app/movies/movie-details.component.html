@@ -1,0 +1,47 @@
+
+<!-- 
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            {{ pageTitle }}
+        </div>
+        <div class="card-body" *ngIf="movieInfo">
+     <div class="d-flex">
+        <img
+        class="card-img-top"
+        [src]="'https://image.tmdb.org/t/p/w1280' + movieInfo.poster_path"
+        alt="Card image cap"
+      />       
+       <div>
+            
+        </div>
+     </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="movie-card border-0 mt-5">
+        <div class="poster">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + movieInfo?.poster_path" alt="{{ movieInfo?.title }} Poster">
+        </div>
+        <div class="info">
+          <h2>{{ movieInfo?.title }}</h2>
+          
+          <div class="details">
+            <span class="label">Release date:</span>
+            <span class="value">{{ movieInfo?.release_date }}</span>
+          </div>
+          <div class="details">
+            <span class="label">Original language :</span>
+            <span class="value">{{ movieInfo?.original_language }}</span>
+          </div>
+          <p>{{ movieInfo?.overview }}</p>
+          <div class="rating">
+            <span class="label">Average Rating:</span>
+            <span class="value">{{ movieInfo?.vote_average }}</span>
+          </div>
+        </div>
+      </div>
+      
+</div>
