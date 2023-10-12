@@ -21,7 +21,6 @@ import { WelcomeComponent } from 'src/home/welcome.component';
         { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
       ]),
     MoviesModule,
-  
   ],
   providers: [],
   bootstrap: [AppComponent]

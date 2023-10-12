@@ -1,34 +1,70 @@
-<div class="card">
-    <div class="card-header">
-    {{pageTitle}}
-    </div>
-    <div class="card-body">
-      <div class="row align-items-center">
-        <div class="col-md-1">Filter By :</div>
-        <div class="col-md-4">
-          <input type="text"
-          class="form-control"
-          [(ngModel)] = 'listFilter'
-          name="" id="" />
-        </div>
+<!-- <div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+      <div ngModelGroup="validData" #validData="ngModelGroup">
+          <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name"/>
       </div>
-      <div class="row" >
-            <div class="card m-3 p-0 shadow" style="width: 18rem;" 
-            *ngFor="let movie of filteredMovies.results">
-                <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w1280' + movie.poster_path" alt="Card image cap">
-              
-                <div class="card-body">
-                    <movie-btn
-                [title]='movie.title'
-                (movieBtnClicked)='onBtnClicked($event)'
-                ></movie-btn>
-                  <h5 class="card-title">{{movie.title}}</h5>
-                  <p class="card-text">{{movie.overview}}</p>
-                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control"  ng-dirty="change('hi')" id="email" name="email" [(ngModel)]="email" />
+      <span>{{email}}</span>
+      </div>
+      </div>
+    
+      <div class="mb-3">
+        <label for="note" class="form-label">Note</label>
+        <input type="text" class="form-control" id="note" name="note" [(ngModel)]="note"/>
+      </div>
+     
+
+      <input type="submit" />
+    </form>
+  </div>
+</div> -->
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+  <div class="card-body">
+    <div class="row align-items-center">
+      <div class="col-md-1">Filter By :</div>
+      <div class="col-md-4">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="listFilter"
+          name=""
+          id=""
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="card m-3 p-0 shadow"
+        style="width: 18rem"
+        *ngFor="let movie of filteredMovies.results"
+      >
+        <img
+          class="card-img-top"
+          [src]="'https://image.tmdb.org/t/p/w1280' + movie.poster_path"
+          alt="Card image cap"
+        />
+
+        <div class="card-body">
+          <!-- <movie-btn
+            [title]="movie.title"
+            (movieBtnClicked)="onBtnClicked($event)"
+          ></movie-btn> -->
+          <h5 class="card-title fw-bold text-center text-warning">{{ movie.title }}</h5>
+          <p class="card-text">{{ movie.overview }}</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
         </div>
-      
       </div>
     </div>
   </div>
-  
+</div>
